@@ -1,17 +1,19 @@
-import { Auth, ThemeSupa } from '@supabase/auth-ui-react'
+import { Auth } from '@supabase/auth-ui-react'
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
-import Account from '../components/Account'
+import Account from '@components/Account'
 
 function Home() {
 	const session = useSession()
 	const supabase = useSupabaseClient()
 
 	return (
-		<div
-			className="container"
-			style={{ padding: '50px 0 100px 0' }}>
+		<div className="container">
 			{!session ? (
-				<Auth supabaseClient={supabase} />
+				<Auth
+					supabaseClient={supabase}
+					magicLink
+					providers
+				/>
 			) : (
 				<Account session={session} />
 			)}
