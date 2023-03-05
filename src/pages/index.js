@@ -11,10 +11,7 @@ function Home() {
 			className="container"
 			style={{ padding: '50px 0 100px 0' }}>
 			{!session ? (
-				<Auth
-					supabaseClient={supabase}
-					appearance={{ theme: ThemeSupa }}
-				/>
+				<Auth supabaseClient={supabase} />
 			) : (
 				<Account session={session} />
 			)}
